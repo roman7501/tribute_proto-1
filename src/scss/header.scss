@@ -1,0 +1,61 @@
+.header {
+  position: relative;
+  width: 100%;
+
+  .title {
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    z-index: 1;
+  }
+
+  .img__container {
+    margin: 0 auto;
+    width: 70vw;
+    height: 120vh;
+    position: relative;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+    &::before {
+      content: "";
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 20vh;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  .overlay {
+    font-family: "Plantagenet";
+    position: absolute;
+    font-size: 30vw;
+    top: 20%;
+    right: 0%;
+    color: pink;
+    mix-blend-mode: overlay;
+  }
+
+  .desc {
+    position: absolute;
+    top: 60%;
+    right: 10%;
+    font-size: 24px;
+  }
+
+  .info {
+    // font-family: "Plantagenet";
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 1;
+    mix-blend-mode: color-dodge;
+  }
+}

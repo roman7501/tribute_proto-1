@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "eesti";
+  src: url("HelveticaNeueLTProRoman.woff2") format("woff2"), url("HelveticaNeueLTProRoman.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Plantagenet";
+  src: url("Plantagenet_Cherokee.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}

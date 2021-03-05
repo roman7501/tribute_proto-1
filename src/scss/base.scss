@@ -1,0 +1,53 @@
+$yellow: #f0cf20;
+
+body {
+  font-family: "eesti";
+  font-size: 16px;
+  background: #000;
+  color: #eee;
+}
+
+.container {
+  padding: 0 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.text {
+  font-family: "Plantagenet";
+  color: $yellow;
+  letter-spacing: 0.7;
+  font-size: 20px;
+}
+
+// .lines {
+//   margin-top: 300px;
+//   // border: salmon solid 1px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   width: 80vw;
+//   // p {
+//   //   align-self: start;
+//   //   &:nth-of-type(2) {
+//   //     align-self: flex-end;
+//   //   }
+//   // }
+// }
+
+// .line {
+//   // border: 1px solid rgb(182, 130, 50);
+//   width: 90%;
+//   margin: 10px 0;
+// }
+
+@media (max-width: 750px) {
+  .container {
+    padding: 0 24px;
+  }
+}
