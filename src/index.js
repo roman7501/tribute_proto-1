@@ -3,6 +3,11 @@ import Lines from "./js/lines.js";
 import MoonMap from "./js/moonMap.js";
 
 // const header = new Header();
-new Header();
-new MoonMap();
-new Lines();
+
+const init = () => {
+  new Header();
+  new MoonMap();
+  new Lines();
+};
+
+window.onLoad = init();
