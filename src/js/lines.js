@@ -11,18 +11,29 @@ export default class Lines {
         start: "center center",
       },
     });
-    document.addEventListener("DOMContentLoaded", (event) => {
-      document.body.offsetTop;
-      console.log("DOM fully loaded and parsed");
-      console.log(document.querySelectorAll("svg"));
 
+    if (() => this.allSvgLoaded()) {
       this.init();
-    });
+      console.log("loaded !");
+    }
   }
 
   init() {
     this.anim();
   }
+
+  allSvgLoaded() {
+    const allSvg = document.querySelectorAll("svg");
+    let index = 0;
+
+    allSvg.forEach((svg) => {
+      svg.addEventListener("load", () => {
+        index++;
+        if (index === allSvg.length) return true;
+      });
+    });
+  }
+
   anim() {
     gsap.from("#intro-1", { scrollTrigger: "#intro-1", opacity: 0, delay: 0.5, duration: 2 });
     gsap.from("#intro-2", { scrollTrigger: "#intro-2", opacity: 0, delay: 0.5, duration: 2 });
