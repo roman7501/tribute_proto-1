@@ -11,7 +11,10 @@ export default class Lines {
         start: "center center",
       },
     });
-    this.init();
+    document.addEventListener("DOMContentLoaded", (event) => {
+      console.log("DOM fully loaded and parsed");
+      this.init();
+    });
   }
 
   init() {
