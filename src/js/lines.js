@@ -5,14 +5,14 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 export default class Lines {
   constructor() {
     gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
-    this.tl1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#moon",
-        start: "center center",
-      },
-    });
 
     if (() => this.allSvgLoaded()) {
+      this.tl1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#moon",
+          start: "center center",
+        },
+      });
       this.init();
       console.log("loaded !");
     }
