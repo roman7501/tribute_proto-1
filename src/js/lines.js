@@ -6,7 +6,7 @@ export default class Lines {
   constructor() {
     gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
-    if (() => this.allSvgLoaded()) {
+    if (() => this.allSvgLoaded() === true) {
       this.tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: "#moon",
