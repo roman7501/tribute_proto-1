@@ -13,7 +13,7 @@ export default class Lines {
     });
     document.addEventListener("DOMContentLoaded", (event) => {
       console.log("DOM fully loaded and parsed");
-      console.log(document.querySelector(".line-2"));
+      console.log(document.querySelector("#line-2"));
       this.init();
     });
   }
