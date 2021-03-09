@@ -25,6 +25,7 @@ export default class Lines {
             scrollTrigger: {
               trigger: "#moon",
               start: "center center",
+              nullTargetWarn: false,
             },
           });
           this.anim();
