@@ -13,6 +13,8 @@ export default class Lines {
       },
     });
 
+    this.linesMoon = "#line-1,#line-2,#line-3,#line-4, #line-5";
+
     this.init();
   }
 
@@ -45,7 +47,8 @@ export default class Lines {
 
     // gsap.set("#line-1", { attr: { fill: "none", stroke: "red", "stroke-width": 1 } });
     this.tl1.from("#moon", { opacity: 0, delay: 1, duration: 4 });
-    this.tl1.from("line", { drawSVG: 0, duration: 5 }, "-=1");
+
+    this.tl1.from(this.linesMoon, { drawSVG: 0, duration: 5 }, "-=1");
     this.tl1.from("#text-1", { opacity: 0, duration: 5 }, "-=1");
 
     // // draw lines
