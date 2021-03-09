@@ -15,11 +15,12 @@ export default class Lines {
   allSvgLoaded() {
     const allSvg = document.querySelectorAll("svg");
     let index = 0;
+    console.log(allSvg);
 
     allSvg.forEach((svg) => {
       svg.addEventListener("load", () => {
         index++;
-        console.log(index);
+        console.log("loading");
         if (index === allSvg.length) {
           this.tl1 = gsap.timeline({
             scrollTrigger: {
