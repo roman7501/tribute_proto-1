@@ -5,21 +5,11 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 export default class Lines {
   constructor() {
     gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
-
-    if (() => this.allSvgLoaded() === true) {
-      this.tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#moon",
-          start: "center center",
-        },
-      });
-      this.init();
-      console.log("loaded !");
-    }
+    this.init();
   }
 
   init() {
-    this.anim();
+    this.allSvgLoaded();
   }
 
   allSvgLoaded() {
@@ -29,7 +19,17 @@ export default class Lines {
     allSvg.forEach((svg) => {
       svg.addEventListener("load", () => {
         index++;
-        if (index === allSvg.length) return true;
+        console.log(index);
+        if (index === allSvg.length) {
+          this.tl1 = gsap.timeline({
+            scrollTrigger: {
+              trigger: "#moon",
+              start: "center center",
+            },
+          });
+          this.anim();
+          console.log("loaded !");
+        }
       });
     });
   }
