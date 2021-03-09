@@ -13,7 +13,7 @@ export default class Lines {
       },
     });
 
-    this.linesMoon = "#line-1,#line-2,#line-3,#line-4, #line-5";
+    this.linesMoon = ".line--el";
 
     this.init();
   }
