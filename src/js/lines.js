@@ -5,11 +5,21 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 export default class Lines {
   constructor() {
     gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+
+    this.tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#moon",
+        start: "center center",
+      },
+    });
+
     this.init();
   }
 
   init() {
-    this.allSvgLoaded();
+    // this.allSvgLoaded();
+
+    this.anim();
   }
 
   allSvgLoaded() {
@@ -22,13 +32,6 @@ export default class Lines {
         index++;
         console.log("loading");
         if (index === allSvg.length) {
-          this.tl1 = gsap.timeline({
-            scrollTrigger: {
-              trigger: "#moon",
-              start: "center center",
-              nullTargetWarn: false,
-            },
-          });
           this.anim();
           console.log("loaded !");
         }
@@ -40,11 +43,15 @@ export default class Lines {
     gsap.from("#intro-1", { scrollTrigger: "#intro-1", opacity: 0, delay: 0.5, duration: 2 });
     gsap.from("#intro-2", { scrollTrigger: "#intro-2", opacity: 0, delay: 0.5, duration: 2 });
 
+    // gsap.set("#line-1", { attr: { fill: "none", stroke: "red", "stroke-width": 1 } });
     this.tl1.from("#moon", { opacity: 0, delay: 1, duration: 4 });
     this.tl1.from("#line-1", { drawSVG: 0, duration: 5 }, "-=1");
     this.tl1.from("#text-1", { opacity: 0, duration: 5 }, "-=1");
 
     // // draw lines
+
+    // setting
+
     gsap.from("#line-2", { scrollTrigger: "#line-2", drawSVG: 0, duration: 5, delay: 4.5 });
     gsap.from("#line-3", { scrollTrigger: "#line-3", drawSVG: 0, duration: 5, delay: 4.5 });
     gsap.from("#line-4", { scrollTrigger: "#line-4", drawSVG: 0, duration: 5, delay: 4.5 });
