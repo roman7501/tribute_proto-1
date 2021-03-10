@@ -1,3 +1,6 @@
+import Scrollbar from "smooth-scrollbar";
+import LocomotiveScroll from "locomotive-scroll";
+
 import Header from "./js/header.js";
 import Lines from "./js/lines.js";
 import MoonMap from "./js/moonMap.js";
@@ -10,4 +13,10 @@ const init = () => {
   new Lines();
 };
 
+const scroll = new LocomotiveScroll({
+  el: document.querySelector("[data-scroll-container]"),
+  smooth: true,
+});
+
+console.log(scroll);
 window.onLoad = init();

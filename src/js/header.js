@@ -14,16 +14,29 @@ export default class Header {
   }
 
   anim() {
-    // Title
-    gsap.from("#title", { opacity: 0, duration: 7 });
-    gsap.from("#TRIBUTE_TO_BEAU", { strokeDashoffset: 0, strokeDasharray: 20, duration: 5 });
-    gsap.to("#TRIBUTE_TO_BEAU", { fill: "#f0cf20", duration: 5, delay: 2 });
-
     // // Rest of Header
-    this.tl.from("#header-img", { opacity: 0, duration: 7, scale: 0.9, delay: 0.5 });
-    this.tl.from("#desc", { opacity: 0, duration: 5 }, "-=3");
-    this.tl.from("#overlay", { opacity: 0, duration: 3 }, "-=4");
-    this.tl.from("#info", { opacity: 0, duration: 3 }, "-=2");
+    gsap.fromTo("#header-img", { opacity: 0 }, { opacity: 1, duration: 19, scale: 0.95, delay: 0.5 });
+    gsap.from("#info", { opacity: 0, duration: 5, delay: 3.5 });
     0;
+    gsap.to("#info", {
+      scrollTrigger: {
+        trigger: "#header-img",
+        start: "center top",
+      },
+      opacity: 0,
+      duration: 3,
+    });
+
+    gsap.to(".title, .desc", {
+      scrollTrigger: {
+        trigger: ".lines",
+        start: "top bottom",
+        end: "40px top",
+        scrub: true,
+      },
+      y: -500,
+      opacity: 0,
+      ease: "Power2.in",
+    });
   }
 }
