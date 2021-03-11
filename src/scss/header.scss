@@ -1,18 +1,16 @@
 .header {
   position: relative;
   width: 100%;
-  background: red;
   .title {
     position: fixed;
     top: 50%;
     left: 50%;
-    z-index: 1;
     transform: translate(-50%, -50%);
     font-family: "Plantagenet";
     font-size: 190px;
     text-transform: uppercase;
     color: $yellow;
-    mix-blend-mode: overlay;
+    // mix-blend-mode: overlay;
     text-align: center;
   }
 

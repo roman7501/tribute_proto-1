@@ -15,16 +15,15 @@ export default class Header {
 
   anim() {
     // // Rest of Header
-    gsap.fromTo("#header-img", { opacity: 0 }, { opacity: 1, duration: 19, scale: 0.95, delay: 0.5 });
-    gsap.from("#info", { opacity: 0, duration: 5, delay: 3.5 });
+    gsap.fromTo("#header-img", { opacity: 0 }, { opacity: 1, duration: 4, scale: 0.95, delay: 0.5 });
+    gsap.from("#info", { opacity: 0, duration: 2, delay: 1.5 });
     0;
     gsap.to("#info", {
       scrollTrigger: {
-        trigger: "#header-img",
-        start: "center top",
+        trigger: ".lines",
+        start: "top bottom",
       },
       opacity: 0,
-      duration: 3,
     });
 
     gsap.to(".title, .desc", {
