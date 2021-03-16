@@ -54,19 +54,19 @@ export default class Lines {
       duration: 5,
     });
 
-    gsap.to("#moon-2", {
-      duration: 5,
-      ease: "power2",
-      scrollTrigger: {
-        trigger: ".path__wrapper",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-      motionPath: {
-        path: "#path",
-      },
-    });
+    // gsap.to("#moon-2", {
+    //   duration: 5,
+    //   ease: "power2",
+    //   scrollTrigger: {
+    //     trigger: ".path__wrapper",
+    //     start: "top top",
+    //     end: "bottom top",
+    //     scrub: true,
+    //   },
+    //   motionPath: {
+    //     path: "#path",
+    //   },
+    // });
 
     // To make movingontainer", { scrollTrigger: "#text-5", y: "200vh", opacity: 1, duration: 15, ease: "Power3.out" });
   }
