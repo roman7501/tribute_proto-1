@@ -5,37 +5,32 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 export default class Header {
   constructor() {
     gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
-    this.tl = gsap.timeline();
-    this.init();
-  }
-
-  init() {
-    this.anim();
   }
 
   anim() {
-    // // Rest of Header
     gsap.fromTo("#header-img", { opacity: 0 }, { opacity: 1, duration: 4, scale: 0.95, delay: 0.5 });
-    gsap.from("#info", { opacity: 0, duration: 2, delay: 1.5 });
-    0;
-    gsap.to("#info", {
-      scrollTrigger: {
-        trigger: ".lines",
-        start: "top bottom",
-      },
-      opacity: 0,
+    gsap.from(".title", { opacity: 0 });
+
+    ScrollTrigger.create({
+      scroller: "[data-scroll-container]",
+      trigger: ".title",
+      start: "top top+=100",
+      endTrigger: ".lines",
+      end: "top bottom-=300",
+      scrub: true,
+      pin: true,
     });
 
-    gsap.to(".title, .desc", {
-      scrollTrigger: {
-        trigger: ".lines",
-        start: "top bottom",
-        end: "40px top",
-        scrub: true,
-      },
-      y: -500,
-      opacity: 0,
-      ease: "Power2.in",
+    ScrollTrigger.create({
+      scroller: "[data-scroll-container]",
+      trigger: ".desc",
+      start: "top top+=600",
+      endTrigger: ".lines",
+      end: "top bottom-=300",
+      scrub: true,
+      pin: true,
     });
+
+    gsap.from("#info", { opacity: 0, duration: 2, delay: 1.5 });
   }
 }

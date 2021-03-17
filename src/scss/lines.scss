@@ -1,17 +1,7 @@
 .lines {
   width: 100%;
-  margin-top: 100vh;
-  padding-top: 300px;
+  padding-top: 700px;
   position: relative;
-  // border: 1px solid red;
-
-  svg {
-    height: auto;
-  }
-
-  p:nth-child(1) {
-    text-align: right;
-  }
 
   .moon__container {
     margin-top: 20px;
@@ -50,6 +40,8 @@
   .text-5 {
     margin-top: 35vh;
     margin-left: 50vw;
+
+    margin-bottom: 100vh;
   }
 
   line {

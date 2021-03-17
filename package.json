@@ -14,7 +14,6 @@
     "js": "^0.1.0",
     "locomotive-scroll": "^4.1.0",
     "scss": "^0.2.4",
-    "smooth-scrollbar": "^8.6.0",
     "three": "^0.126.1"
   },
   "devDependencies": {
