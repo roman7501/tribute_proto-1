@@ -16,16 +16,7 @@ export default class Lines {
         scroller: "[data-scroll-container]",
         trigger: "#intro-1",
         start: "top bottom-=50",
-      },
-      opacity: 0,
-      duration: durationFadeIn,
-    });
-
-    gsap.from("#intro-2", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#intro-2",
-        start: "top bottom-=50",
+        toggleActions: "play pause reverse reverse",
       },
       opacity: 0,
       duration: durationFadeIn,
@@ -34,8 +25,9 @@ export default class Lines {
     gsap.from("#moon-container", {
       scrollTrigger: {
         scroller: "[data-scroll-container]",
-        trigger: "#intro-2",
+        trigger: "#intro-1",
         start: "top bottom-=50",
+        toggleActions: "play pause reverse reverse",
       },
       opacity: 0,
       y: 500,

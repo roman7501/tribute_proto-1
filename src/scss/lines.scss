@@ -9,7 +9,7 @@
     text-align-last: right;
     img {
       margin-top: 40vh;
-      margin-left: 30vw;
+      margin-left: 80vw;
       width: 40px;
     }
   }
@@ -17,6 +17,9 @@
     // border: 1px solid salmon;
     z-index: -1;
     position: absolute;
+  }
+  #intro-1 {
+    margin-left: 30vw;
   }
   .text-1 {
     margin-top: 50vh;
