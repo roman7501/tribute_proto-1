@@ -8,7 +8,11 @@
   transform: scale(0.9);
   opacity: 1;
   position: fixed;
+  // pointer-events: all;
   svg {
     height: 95vh;
+  }
+  .moon-path {
+    transition: transform 0.3s ease;
   }
 }

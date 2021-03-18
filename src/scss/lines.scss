@@ -2,32 +2,61 @@
   width: 100%;
   padding-top: 700px;
   position: relative;
-
+  margin-bottom: 100vh;
   .moon__container {
-    margin-top: 20px;
-    margin-left: 50px;
-    text-align-last: right;
     img {
-      margin-top: 40vh;
       margin-left: 80vw;
       width: 40px;
     }
   }
-  .path__wrapper {
-    // border: 1px solid salmon;
-    z-index: -1;
-    position: absolute;
-  }
+
   #intro-1 {
     margin-left: 30vw;
+    font-size: 24px;
+    -webkit-text-stroke: 1px $yellow;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .rain-1 {
+    position: absolute;
+    top: 130vh;
+    left: 30px;
+  }
+  .rain-2 {
+    position: absolute;
+    top: 220vh;
+    left: 70vw;
+  }
+  .rain-3 {
+    position: absolute;
+    top: 350vh;
+    left: 7vw;
+  }
+
+  .text-beau {
+    font-family: ambroise-firmin-std, serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #f7f7f7;
+  }
+  .text-big {
+    font-size: 80px;
   }
   .text-1 {
     margin-top: 50vh;
     margin-left: 10vw;
+    span {
+      margin-left: 55px;
+    }
+    opacity: 0.13;
   }
   .text-2 {
-    margin-top: 55vh;
-    margin-left: 10vw;
+    margin-top: 20vh;
+    margin-left: 20vw;
+    span {
+      margin-left: 205px;
+    }
+    opacity: 0.13;
   }
 
   .text-3 {
@@ -41,19 +70,7 @@
   }
 
   .text-5 {
-    margin-top: 35vh;
+    margin-top: 85vh;
     margin-left: 50vw;
-
-    margin-bottom: 100vh;
   }
-
-  line {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 1;
-  }
-}
-
-.text-beau {
-  color: #f7f7f7;
 }

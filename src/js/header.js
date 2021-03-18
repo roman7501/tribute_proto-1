@@ -11,16 +11,20 @@ export default class Header {
     gsap.from(".title", { opacity: 0 });
     gsap.from("#info", { opacity: 0, duration: 1 });
 
-    gsap.to(".info", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: ".header",
-        start: "top top-=100",
-        // end: "center top",
-      },
-      opacity: 0,
-      duration: 2,
-    });
+    gsap.fromTo(
+      ".info",
+      { opacity: 0.7 },
+      {
+        scrollTrigger: {
+          scroller: "[data-scroll-container]",
+          trigger: ".header",
+          start: "top top-=200",
+          end: "center top-=200",
+          scrub: true,
+        },
+        opacity: 0,
+      }
+    );
 
     ScrollTrigger.create({
       scroller: "[data-scroll-container]",
@@ -40,7 +44,7 @@ export default class Header {
         toggleActions: "play pause reverse reverse",
       },
       opacity: 0,
-      duration: 4,
+      duration: 1,
       delay: 0.3,
       // stagger: 0.05,
     });
