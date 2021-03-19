@@ -56,7 +56,7 @@ export default class Header {
         start: "top bottom-=300",
         toggleActions: "play pause reverse reverse",
       },
-      opacity: 0.2,
+      opacity: 0.14,
       duration: 0.5,
     });
   }

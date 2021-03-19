@@ -8,10 +8,11 @@
     top: 50vh;
     left: 2%;
     transform: translate3d(0, -50%, 0);
-    font-family: "Plantagenet";
-    font-size: 34px;
+    font-family: "Moniqa";
+    font-size: 74px;
     text-transform: uppercase;
-    color: $yellow;
+    color: #fff;
+
     text-align: center;
   }
 
@@ -26,24 +27,27 @@
     opacity: 0.7;
   }
   .desc {
-    position: absolute;
-    top: 180vh;
-    left: 2%;
-    font-size: 34px;
+    font-family: "Moniqa";
+    font-size: 74px;
     text-transform: uppercase;
+    color: #fff;
+
+    position: absolute;
+    top: 178vh;
+    left: 2%;
     width: 100%;
     opacity: 1;
   }
   .desc-2 {
-    transform: translateY(130%);
-    opacity: 0.2;
+    transform: translateY(80%);
+    opacity: 0.14;
   }
   .desc-3 {
-    transform: translateY(230%);
-    opacity: 0.1;
+    transform: translateY(164%);
+    opacity: 0.07;
   }
   .desc-4 {
-    transform: translateY(265%);
-    opacity: 0.12;
+    transform: translateY(182%);
+    opacity: 0.03;
   }
 }

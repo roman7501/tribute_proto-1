@@ -12,3 +12,17 @@
   font-style: normal;
   font-display: block;
 }
+@font-face {
+  font-family: "Moniqa";
+  src: url("Moniqa-ExtBdCondHeading.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Nimbus";
+  src: url("NimbusSanL-Bol.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}

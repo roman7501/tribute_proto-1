@@ -6,6 +6,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import Header from "../header.js";
 import Lines from "../lines.js";
 import MoonMap from "../moonMap.js";
+import Reverse from "../reverse.js";
 
 export default class getScrollWithAnims {
   constructor() {
@@ -14,6 +15,7 @@ export default class getScrollWithAnims {
     this.header = new Header();
     this.lines = new Lines();
     this.moonMap = new MoonMap();
+    this.reverse = new Reverse();
 
     this.scrollAndAnims();
   }
@@ -48,6 +50,7 @@ export default class getScrollWithAnims {
     this.header.anim();
     this.lines.anim();
     this.moonMap.anim();
+    this.reverse.anim();
 
     /**
      * Scroll event listener

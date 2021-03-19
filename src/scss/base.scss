@@ -1,4 +1,5 @@
 $yellow: #f0cf20;
+$blue: #0f132b;
 
 body {
   font-family: "eesti";
@@ -9,7 +10,7 @@ body {
 }
 
 .container {
-  padding: 0 32px;
+  padding: 0;
   width: 100%;
   // height: 600vh;
   display: flex;
@@ -27,6 +28,13 @@ body {
   color: $yellow;
   letter-spacing: 0.7;
   font-size: 20px;
+}
+
+.text-beau {
+  font-family: ambroise-firmin-std, serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #f7f7f7;
 }
 
 // LOCOMOTIVE
