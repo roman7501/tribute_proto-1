@@ -7,6 +7,7 @@ import Header from "../header.js";
 import Lines from "../lines.js";
 import MoonMap from "../moonMap.js";
 import Reverse from "../reverse.js";
+import Particules from "../particules.js";
 
 export default class getScrollWithAnims {
   constructor() {
@@ -16,6 +17,7 @@ export default class getScrollWithAnims {
     this.lines = new Lines();
     this.moonMap = new MoonMap();
     this.reverse = new Reverse();
+    this.particules = new Particules();
 
     this.scrollAndAnims();
   }
@@ -51,6 +53,7 @@ export default class getScrollWithAnims {
     this.lines.anim();
     this.moonMap.anim();
     this.reverse.anim();
+    this.particules.anim();
 
     /**
      * Scroll event listener

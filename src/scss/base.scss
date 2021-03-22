@@ -24,17 +24,18 @@ body {
 }
 
 .text {
-  font-family: "Plantagenet";
-  color: $yellow;
+  font-family: "Nimbus";
+  color: rgba(255, 255, 255, 1);
   letter-spacing: 0.7;
-  font-size: 20px;
+  font-size: 32px;
+  text-transform: uppercase;
 }
 
 .text-beau {
-  font-family: ambroise-firmin-std, serif;
-  font-weight: 300;
-  font-style: normal;
-  color: #f7f7f7;
+  font-family: "Moniqa";
+  font-size: 74px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 // LOCOMOTIVE

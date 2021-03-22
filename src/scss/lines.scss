@@ -15,8 +15,6 @@
   .intro-1 {
     font-family: "Nimbus";
     margin-left: 3vw;
-    font-size: 32px;
-    color: rgba(255, 255, 255, 1);
     text-transform: uppercase;
     position: relative;
     #play {
@@ -50,18 +48,20 @@
     font-size: 80px;
   }
   .text-1 {
-    color: #435758;
     margin-top: 50vh;
     margin-left: 10vw;
+    font-size: 140px;
+
     span {
       margin-left: 55px;
     }
     opacity: 0.8;
   }
   .text-2 {
-    color: #3781b1;
-    margin-top: 50vh;
-    margin-left: 20vw;
+    margin-top: 10vh;
+    margin-left: 35vw;
+    font-size: 180px;
+    opacity: 0.7;
     span {
       margin-left: 205px;
     }
@@ -69,30 +69,32 @@
   }
 
   .text-3 {
-    color: #293e80;
-    margin-top: 50vh;
-    margin-left: 20.5vw;
+    margin-top: 0vh;
+    margin-left: 4vw;
     opacity: 1;
+    font-size: 140px;
+
     span {
       margin-left: 205px;
     }
   }
 
   .text-4 {
-    color: #4320a2;
-    margin-top: 60vh;
-    margin-left: 24vw;
+    margin-top: 20vh;
+    margin-left: 2vw;
+    font-size: 180px;
+
     opacity: 1;
   }
 
   .text-5 {
-    color: #480268;
-    margin-top: 85vh;
-    margin-left: 50vw;
+    margin-top: 35vh;
+    margin-left: 10vw;
+    font-size: 120px;
   }
   .rain {
     line {
-      stroke: #9e3071;
+      stroke: #fff;
     }
   }
 }

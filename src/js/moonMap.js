@@ -49,16 +49,15 @@ export default class MoonMap {
   animCircleCenter() {
     gsap.fromTo(
       "#small-circle, #small-line-1, #small-line-2",
-      { stroke: "#7d2c6e", opacity: 1, drawSVG: 0 },
+      { stroke: "#fff", opacity: 0, drawSVG: 0 },
       {
         scrollTrigger: {
           scroller: "[data-scroll-container]",
           trigger: "#intro-1",
           start: "center center",
         },
-        // stroke: "#898989",
         drawSVG: "100%",
-        opacity: 1,
+        opacity: 0.5,
         delay: 0.3,
         duration: 1.7,
       }
@@ -134,10 +133,6 @@ export default class MoonMap {
         start: "top top",
       },
       opacity: 0,
-      y: 10,
-      x: 8,
-      duration: 6,
-      stagger: 0,
     });
     gsap.from("#moon-8,#moon-4,#moon-5, #moon-3, #moon-7", {
       scrollTrigger: {
@@ -146,9 +141,16 @@ export default class MoonMap {
         start: "top top",
       },
       opacity: 0,
-
-      duration: 4,
-      stagger: 0.1,
+    });
+    gsap.from("#moon-path__wrapper", {
+      scrollTrigger: {
+        scroller: "[data-scroll-container]",
+        trigger: "#text-5",
+        start: "top top",
+      },
+      transformOrigin: "center center",
+      rotation: -50,
+      duration: 0.5,
     });
   }
 
@@ -156,31 +158,102 @@ export default class MoonMap {
     this.tl = gsap.timeline({
       scrollTrigger: {
         scroller: "[data-scroll-container]",
-        trigger: ".reverse",
-        start: "top top",
+        trigger: ".lines",
+        start: "bottom top",
         endTrigger: ".god",
-        end: "center center",
+        end: "bottom center",
         scrub: true,
       },
     });
+
+    // 1. Rotate little bit
 
     this.tl.to("#moon-path__wrapper", {
       transformOrigin: "center center",
       rotation: 360,
       scale: 0.8,
+      ease: "linear",
     });
+
+    this.tl.to(
+      "#triangle-down",
+      {
+        transformOrigin: "center center",
+        rotation: 50,
+        ease: "linear",
+      },
+      "<"
+    );
+    this.tl.to(
+      "#triangle-up",
+      {
+        transformOrigin: "center center",
+        rotation: -30,
+        ease: "linear",
+      },
+      "<"
+    );
+
+    this.tl.to(
+      ".middle-line",
+      {
+        scale: 1.4,
+        opacity: 0.15,
+      },
+      "<"
+    );
+    this.tl.to(
+      "#big-circle",
+      {
+        opacity: 0.1,
+      },
+      "<"
+    );
+
+    // 2. Get smaller
+
     this.tl.to("#moon-path__wrapper", {
       transformOrigin: "center center",
       rotation: 2 * 360,
-      scale: 0.1,
+      scale: 0.04,
+      opacity: 0.5,
     });
+
+    this.tl.to(
+      "#big-polygon",
+      {
+        transformOrigin: "center center",
+        rotation: 2 * 360,
+        scale: 0.1,
+      },
+      "<"
+    );
+
+    this.tl.to(
+      "#small-polygon",
+      {
+        transformOrigin: "center center",
+        rotation: 2 * 360,
+        scale: 0.1,
+      },
+      "<"
+    );
+    this.tl.to(
+      ".small-line",
+      {
+        transformOrigin: "center center",
+        rotation: 2 * 360,
+        scale: 0.1,
+      },
+      "<"
+    );
 
     this.tl.to(
       "#triangle-down, #triangle-up",
       {
         transformOrigin: "center center",
         rotation: 40,
-        scale: 0.4,
+        scale: 0.1,
       },
       "<"
     );
@@ -188,19 +261,13 @@ export default class MoonMap {
     this.tl.to(
       ".middle-line",
       {
+        transformOrigin: "center center",
         rotation: 70,
-        scale: 0.7,
+        scale: 4.7,
       },
       "<"
     );
-    this.tl.to(
-      ".middle-line",
-      {
-        rotation: 70,
-        scale: 0.7,
-      },
-      "<"
-    );
+
     this.tl.to(
       ".big-line",
       {
@@ -213,19 +280,60 @@ export default class MoonMap {
       "#big-circle",
       {
         transformOrigin: "center center",
-        scale: 0.2,
+        scale: 0.05,
       },
       "<"
     );
     this.tl.to(
       "#small-circle",
       {
-        fill: "#2070F0",
+        transformOrigin: "center center",
+        scale: 0.2,
       },
       "<"
     );
-    this.tl.to("#moon-map__container", {
-      x: -300,
+
+    // 3. Change color
+
+    this.tl.to("#small-circle", {
+      fill: "#2070F0",
+      opacity: 1,
     });
+
+    this.tl.to(
+      ".big-line",
+      {
+        opacity: 0.05,
+        rotation: 120,
+        scale: 10.7,
+      },
+      "<"
+    );
+    this.tl.to(
+      ".middle-line",
+      {
+        opacity: 0.05,
+        rotation: 120,
+        scale: 10.7,
+      },
+      "<"
+    );
+    this.tl.to(
+      "#middle-line-4",
+      {
+        opacity: 1,
+        rotation: 40,
+        scale: 4,
+        stroke: "#174CA2",
+      },
+      "<"
+    );
+
+    // this.tl.to("#moon-map__container", {
+    //   scrollTrigger: {
+    //     pin: true,
+    //   },
+    //   x: -300,
+    // });
   }
 }
