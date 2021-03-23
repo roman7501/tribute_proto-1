@@ -177,12 +177,12 @@ export default class Reverse {
   }
 
   animTransition() {
-    gsap.to(".big-line", {
+    gsap.to(".moon-map__container", {
       scrollTrigger: {
         scroller: "[data-scroll-container]",
         trigger: ".particules",
         start: "top bottom",
-        end: "bottom bottom",
+        end: "top top-=3000",
         scrub: true,
       },
       y: "-180vh",

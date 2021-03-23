@@ -1,6 +1,60 @@
 .particules {
-  //   border: 1px solid salmon;
-  //   background: rgba(red, 0.2);
-  height: 300vh;
-  width: 100vw;
+  position: relative;
+  width: 100%;
+  .sun-map__container {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  svg {
+    height: auto !important;
+  }
+  .kiss {
+    color: #fc00bd;
+    font-size: 180px;
+    position: absolute;
+    white-space: nowrap;
+    span {
+      margin-right: 300px;
+    }
+  }
+  #kiss-1 {
+    top: 380vh;
+    transform: rotate(-6deg);
+  }
+  #kiss-2 {
+    top: 409vh;
+    transform: rotate(2deg) translateX(-50%);
+  }
+  #kiss-3 {
+    top: 425vh;
+  }
+  #kiss-4 {
+    top: 465vh;
+    opacity: 0.2;
+    transform: rotate(180deg) translateX(20%);
+  }
+
+  .kill-wrapper {
+    background-image: url("/assets/img/sea-bg.png");
+    background-size: cover;
+    background-repeat: repeat-x;
+    height: 100px;
+    position: absolute;
+    top: 555vh;
+    left: 10vw;
+    background-clip: text;
+    -webkit-background-clip: text;
+    p {
+      color: transparent;
+    }
+  }
+
+  @mixin keyframes($animationWaves) {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: 100%;
+    }
+  }
 }
