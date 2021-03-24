@@ -39,10 +39,12 @@ export default class Reverse {
       },
     });
 
+    // God appears from right
     this.tlGod.to(".god", {
       x: 50,
     });
 
+    // ... and blue point shifts on right
     this.tlMoon.to("#moon-map__container", {
       x: -300,
     });
@@ -85,6 +87,14 @@ export default class Reverse {
     this.tlCatch.to(".catch", {
       rotate: 180,
     });
+
+    this.tlCatch.to(
+      "#triangle-down, #triangle-up",
+      {
+        rotate: 180,
+      },
+      "<"
+    );
 
     this.tlCatch.to(
       this.lines1,

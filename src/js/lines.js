@@ -2,33 +2,24 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { SplitText } from "gsap/SplitText";
 
 export default class Lines {
   constructor() {
-    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin);
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
+
+    this.textEls = document.querySelectorAll(".lines .text-beau");
   }
 
   anim() {
+    this.animPlay();
     this.animText();
+    this.animMoon();
     this.animLines();
   }
 
   animPlay() {
-    gsap.fromTo(
-      "#intro-1",
-      {
-        color: "rgba(255, 255, 255, 1)",
-      },
-      {
-        scrollTrigger: {
-          scroller: "[data-scroll-container]",
-          trigger: "#intro-1",
-          start: "center center",
-        },
-        color: "rgba(255, 255, 255, 0)",
-        duration: 0.4,
-      }
-    );
+    // Draw play path
     gsap.fromTo(
       "#play-path",
       {
@@ -46,6 +37,26 @@ export default class Lines {
         duration: 0.8,
       }
     );
+
+    // Fade out text around play
+    gsap.fromTo(
+      "#intro-1",
+      {
+        color: "rgba(255, 255, 255, 1)",
+      },
+      {
+        scrollTrigger: {
+          scroller: "[data-scroll-container]",
+          trigger: "#intro-1",
+          start: "center center",
+        },
+        color: "rgba(255, 255, 255, 0)",
+        delay: 0.5,
+        duration: 0.4,
+      }
+    );
+
+    // Fade out play
     gsap.fromTo(
       "#play",
       {
@@ -63,6 +74,8 @@ export default class Lines {
         duration: 0.6,
       }
     );
+
+    // Fade out play path
     gsap.fromTo(
       "#play-path",
       {
@@ -74,7 +87,7 @@ export default class Lines {
           trigger: "#intro-1",
           start: "center center",
         },
-        opacity: 0.7,
+        opacity: 0.5,
         delay: 0.3,
         duration: 0.6,
       }
@@ -82,8 +95,36 @@ export default class Lines {
   }
 
   animText() {
-    this.animPlay();
+    this.textEls.forEach((text) => {
+      let mySplitText = new SplitText(text, { type: "words,chars" });
 
+      // gsap.from(mySplitText.chars, {
+      //   scrollTrigger: {
+      //     scroller: "[data-scroll-container]",
+      //     trigger: text,
+      //     start: "top bottom-=200",
+      //   },
+      //   opacity: 0,
+      //   x: 10,
+      //   rotate: 10,
+      //   duration: 1,
+      //   stagger: 0.05,
+      // });
+
+      gsap.from(text, {
+        scrollTrigger: {
+          scroller: "[data-scroll-container]",
+          trigger: text,
+          start: "top bottom-=200",
+        },
+        scale: 0.9,
+        opacity: 0,
+        duration: 6,
+      });
+    });
+  }
+
+  animMoon() {
     gsap.from("#moon-container", {
       scrollTrigger: {
         scroller: "[data-scroll-container]",
@@ -94,67 +135,6 @@ export default class Lines {
       y: 700,
       duration: 6,
     });
-
-    gsap.from("#text-1", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-1",
-        start: "center bottom",
-      },
-
-      opacity: 0,
-      duration: 1.5,
-    });
-    gsap.from("#text-2", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-2",
-        start: "center bottom",
-      },
-
-      opacity: 0,
-      duration: 1.5,
-    });
-    gsap.from("#text-3", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-3",
-        start: "center bottom",
-      },
-
-      opacity: 0,
-      duration: 2,
-    });
-    gsap.from("#text-4", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-4",
-        start: "center bottom",
-      },
-
-      opacity: 0,
-      duration: 4,
-    });
-    gsap.from("#text-5", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-5",
-        start: "center bottom",
-      },
-
-      opacity: 0,
-      duration: 1,
-    });
-
-    // ScrollTrigger.create({
-    //   scroller: "[data-scroll-container]",
-    //   trigger: "#text-5",
-    //   start: "top top+=50",
-    //   endTrigger: "html",
-    //   end: "bottom bottom",
-    //   scrub: true,
-    //   pin: true,
-    // });
   }
 
   animLines() {

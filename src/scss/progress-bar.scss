@@ -1,0 +1,41 @@
+$border-progress-bar: rgba(256, 256, 256, 0.4);
+$segment-progress-bar: rgba(256, 256, 256, 0.4);
+$progress-bar: rgba(256, 256, 256, 0.4);
+
+.progress-bar__wrapper {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  .progress-bar--base {
+    position: relative;
+    margin: 0 auto;
+    width: 60vw;
+    height: 10px;
+    border-bottom: 1px solid $border-progress-bar;
+    border-right: 1px solid $border-progress-bar;
+    border-left: 1px solid $border-progress-bar;
+    padding-bottom: 10px;
+    padding-left: 3px;
+  }
+  .progress-bar--segment {
+    position: absolute;
+    height: 12px;
+    width: 2px;
+    background-color: $segment-progress-bar;
+    bottom: 0;
+  }
+  .progress-bar {
+    height: 7px;
+    width: 0;
+    background-color: $progress-bar;
+  }
+  #segment-1 {
+    left: 21%;
+  }
+  #segment-2 {
+    left: 77%;
+  }
+  #segment-3 {
+    left: 100%;
+  }
+}

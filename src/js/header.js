@@ -36,28 +36,47 @@ export default class Header {
       pin: true,
     });
 
-    gsap.from(".desc-shadow", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: ".lines",
-        start: "top bottom-=300",
-        toggleActions: "play pause reverse reverse",
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.3,
-      // stagger: 0.05,
-    });
+    this.animDesc();
+  }
 
-    gsap.to("#desc-1", {
+  animDesc() {
+    this.tl = gsap.timeline({
       scrollTrigger: {
         scroller: "[data-scroll-container]",
         trigger: ".lines",
         start: "top bottom-=300",
         toggleActions: "play pause reverse reverse",
       },
-      opacity: 0.14,
-      duration: 0.5,
     });
+    this.tl.fromTo(
+      ".desc-shadow",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        stagger: 0.1,
+      }
+    );
+    this.tl.to(
+      "#desc-1",
+      {
+        opacity: 0.14,
+        delay: 0.3,
+        duration: 0.5,
+      },
+      "<"
+    );
+    this.tl.to(
+      ".desc-shadow",
+      {
+        opacity: 0.2,
+        duration: 1,
+        delay: 0.3,
+        stagger: 0.1,
+      },
+      "<"
+    );
   }
 }

@@ -19,7 +19,17 @@
   }
   #kiss-1 {
     top: 380vh;
-    transform: rotate(-6deg);
+    overflow: hidden;
+    .kiss-overflow {
+      width: 1000vw;
+      font-size: 0px;
+    }
+    .kiss-1-span {
+      font-size: 180px;
+      display: inline-block;
+      transform: translateX(0);
+    }
+    // transform: rotate(-6deg);
   }
   #kiss-2 {
     top: 409vh;

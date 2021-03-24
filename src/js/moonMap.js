@@ -13,38 +13,36 @@ export default class MoonMap {
   anim() {
     this.animLines();
     this.animMoons();
-    this.getMousePosition();
     this.metamorphose();
-    // this.hoverMoons();
   }
 
-  getMousePosition() {
-    window.addEventListener("mousemove", (e) => {
-      this.mouse.x = e.clientX / window.innerWidth;
-      this.mouse.y = e.clientY / window.innerHeight;
+  // getMousePosition() {
+  //   window.addEventListener("mousemove", (e) => {
+  //     this.mouse.x = e.clientX / window.innerWidth;
+  //     this.mouse.y = e.clientY / window.innerHeight;
 
-      gsap.to(this.mouseEased.x, { value: this.mouse.x, ease: "power2.inOut", duration: 1 });
+  //     gsap.to(this.mouseEased.x, { value: this.mouse.x, ease: "power2.inOut", duration: 1 });
 
-      //  TM.to(this.loadedEased, 4.7, {
-      //    value: this.indexLoaded,
-      //    ease: Power3,
-      //  });
+  //     //  TM.to(this.loadedEased, 4.7, {
+  //     //    value: this.indexLoaded,
+  //     //    ease: Power3,
+  //     //  });
 
-      // console.log(this.mouseEased.x);
-    });
-  }
+  //     // console.log(this.mouseEased.x);
+  //   });
+  // }
 
-  hoverMoons() {
-    this.moonMap = document.querySelector(".moon-map__container");
+  // hoverMoons() {
+  //   this.moonMap = document.querySelector(".moon-map__container");
 
-    const moonsPath = document.querySelectorAll(".moon-path");
+  //   const moonsPath = document.querySelectorAll(".moon-path");
 
-    window.addEventListener("mousemove", () => {
-      moonsPath.forEach((moonEl) => {
-        moonEl.style.transform = `translate3d(${-15 * this.mouse.x}px, ${-5 * this.mouse.y}px, 0)`;
-      });
-    });
-  }
+  //   window.addEventListener("mousemove", () => {
+  //     moonsPath.forEach((moonEl) => {
+  //       moonEl.style.transform = `translate3d(${-15 * this.mouse.x}px, ${-5 * this.mouse.y}px, 0)`;
+  //     });
+  //   });
+  // }
 
   animCircleCenter() {
     gsap.fromTo(
@@ -53,13 +51,13 @@ export default class MoonMap {
       {
         scrollTrigger: {
           scroller: "[data-scroll-container]",
-          trigger: "#intro-1",
+          trigger: "#text-1",
           start: "center center",
         },
         drawSVG: "100%",
         opacity: 0.5,
         delay: 0.3,
-        duration: 1.7,
+        duration: 3.7,
       }
     );
   }
@@ -67,62 +65,57 @@ export default class MoonMap {
   animLines() {
     this.animCircleCenter();
 
-    gsap.from("#big-line-2", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: ".lines",
-        start: "top top-=200",
-        end: "bottom bottom",
-        scrub: true,
+    // Init timeline
+    this.tl = gsap.timeline(
+      {
+        scrollTrigger: {
+          scroller: "[data-scroll-container]",
+          trigger: ".lines",
+          start: "top top-=200",
+          end: "bottom bottom",
+          scrub: true,
+        },
       },
-      transformOrigin: "center center",
-      drawSVG: 0,
-      scale: 5,
-      opacity: 0.7,
-      ease: "power2.inOut",
-    });
+      "<"
+    );
 
-    gsap.from("#big-line-3,#big-line-1", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: ".lines",
-        start: "center top-=200",
-        end: "bottom bottom",
-        scrub: true,
+    this.tl.from(
+      "#big-line-2",
+      {
+        transformOrigin: "center center",
+        drawSVG: 0,
+        scale: 5,
+        opacity: 0,
+        ease: "power2.inOut",
       },
-      transformOrigin: "center center",
-      // drawSVG: 0,
-      // scale: 10,
-      opacity: 0,
-    });
-    gsap.from(".middle-line, #triangle-down, #triangle-up, #small-polygon, #big-polygon", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-2",
-        start: "top top",
-        endTrigger: ".lines",
-        end: "bottom bottom",
-        scrub: true,
+      "<"
+    );
+
+    this.tl.from(
+      "#big-line-3,#big-line-1",
+      {
+        transformOrigin: "center center",
+        opacity: 0,
       },
-      drawSVG: 0,
-      transformOrigin: "center center",
-      // scale: 0.8,
-      // opacity: 0,
-    });
-    gsap.from("#big-circle", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: "#text-2",
-        start: "top top",
-        endTrigger: ".lines",
-        end: "bottom bottom",
-        scrub: true,
+      "<"
+    );
+    this.tl.from(
+      ".middle-line, #triangle-down, #triangle-up, #small-polygon, #big-polygon",
+      {
+        drawSVG: 0,
+        transformOrigin: "center center",
       },
-      drawSVG: 0,
-      scale: 6,
-      opacity: 1,
-      // duration: 4,
-    });
+      "<"
+    );
+    this.tl.from(
+      "#big-circle",
+      {
+        drawSVG: 0,
+        scale: 6,
+        opacity: 1,
+      },
+      "<"
+    );
   }
 
   animMoons() {
@@ -163,6 +156,7 @@ export default class MoonMap {
         endTrigger: ".god",
         end: "bottom center",
         scrub: true,
+        ease: "linear",
       },
     });
 
@@ -172,7 +166,6 @@ export default class MoonMap {
       transformOrigin: "center center",
       rotation: 360,
       scale: 0.8,
-      ease: "linear",
     });
 
     this.tl.to(
@@ -180,7 +173,6 @@ export default class MoonMap {
       {
         transformOrigin: "center center",
         rotation: 50,
-        ease: "linear",
       },
       "<"
     );
@@ -189,7 +181,6 @@ export default class MoonMap {
       {
         transformOrigin: "center center",
         rotation: -30,
-        ease: "linear",
       },
       "<"
     );
@@ -216,7 +207,7 @@ export default class MoonMap {
       transformOrigin: "center center",
       rotation: 2 * 360,
       scale: 0.04,
-      opacity: 0.5,
+      opacity: 0,
     });
 
     this.tl.to(
@@ -252,8 +243,8 @@ export default class MoonMap {
       "#triangle-down, #triangle-up",
       {
         transformOrigin: "center center",
-        rotation: 40,
-        scale: 0.1,
+        rotation: 70,
+        scale: 3,
       },
       "<"
     );
@@ -299,6 +290,17 @@ export default class MoonMap {
       fill: "#2070F0",
       opacity: 1,
     });
+
+    this.tl.to(
+      "#triangle-down, #triangle-up",
+      {
+        transformOrigin: "center center",
+
+        rotation: 120,
+        scale: 4.7,
+      },
+      "<"
+    );
 
     this.tl.to(
       ".big-line",

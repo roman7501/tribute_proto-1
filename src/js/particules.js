@@ -22,32 +22,47 @@ export default class Particules {
   }
 
   anim() {
-    gsap.to("#kiss-1", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: ".particules",
-        start: "top top",
-      },
-      x: "-50%",
-      yoyo: true,
-      repeat: -1,
-      duration: 25,
-      ease: "linear",
-    });
-    gsap.to("#kiss-2", {
-      scrollTrigger: {
-        scroller: "[data-scroll-container]",
-        trigger: ".particules",
-        start: "top top",
-      },
-      x: "50%",
-      yoyo: true,
-      repeat: -1,
-      duration: 45,
-      ease: "linear",
-    });
+    this.animKissText();
+    this.animTextSea();
+  }
 
-    // Anim waves
+  animKissText() {
+    this.textSize = document.getElementById("kiss-1").getBoundingClientRect().width;
+
+    gsap.fromTo(
+      ".kiss-1-span",
+      {
+        x: 0,
+      },
+      {
+        scrollTrigger: {
+          scroller: "[data-scroll-container]",
+          trigger: ".particules",
+          start: "top top",
+        },
+        // transformOrigin: "center center",
+        x: "-100%",
+        repeat: -1,
+        duration: 15,
+        ease: "linear",
+        stagger: 0,
+      }
+    );
+    // gsap.to("#kiss-2", {
+    //   scrollTrigger: {
+    //     scroller: "[data-scroll-container]",
+    //     trigger: ".particules",
+    //     start: "top top",
+    //   },
+    //   x: "50%",
+    //   yoyo: true,
+    //   repeat: -1,
+    //   duration: 45,
+    //   ease: "linear",
+    // });
+  }
+
+  animTextSea() {
     gsap.to(".kill-wrapper", {
       scrollTrigger: {
         scroller: "[data-scroll-container]",

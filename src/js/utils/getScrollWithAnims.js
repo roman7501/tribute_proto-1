@@ -8,6 +8,7 @@ import Lines from "../lines.js";
 import MoonMap from "../moonMap.js";
 import Reverse from "../reverse.js";
 import Particules from "../particules.js";
+import ProgressBar from "../progressBar.js";
 
 export default class getScrollWithAnims {
   constructor() {
@@ -18,8 +19,18 @@ export default class getScrollWithAnims {
     this.moonMap = new MoonMap();
     this.reverse = new Reverse();
     this.particules = new Particules();
+    this.progressBar = new ProgressBar();
+
+    this.scrollPosition = null;
 
     this.scrollAndAnims();
+  }
+
+  AnimProgressBar(locoScroll) {
+    locoScroll.on("scroll", (e) => {
+      this.scrollPosition = Math.round((e.scroll.y / e.limit.y) * 100);
+      this.progressBar.animOnScroll(this.scrollPosition);
+    });
   }
 
   scrollAndAnims() {
@@ -49,6 +60,8 @@ export default class getScrollWithAnims {
     /**
      * Animations
      */
+    this.AnimProgressBar(locoScroll);
+    this.progressBar.anim();
     this.header.anim();
     this.lines.anim();
     this.moonMap.anim();
